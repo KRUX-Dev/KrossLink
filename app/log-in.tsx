@@ -8,7 +8,7 @@ export default function LogInScreen() {
                 Log In
             </Text>
             <Text style={styles.text}>
-                Here you can find information about how we handle your data.
+                Please enter your credentials to log in.
             </Text>
         </View>
     )
