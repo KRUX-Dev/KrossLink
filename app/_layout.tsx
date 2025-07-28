@@ -29,6 +29,20 @@ export default function RootLayout() {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="log-in"
+        options={{
+          title: 'Log In',
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="sign-up"
+        options={{
+          title: 'Sign Up',
+          headerShown: false,
+        }}
+      />
       
       {/* <Stack.Screen
         name="(tabs)"

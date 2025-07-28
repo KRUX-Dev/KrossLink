@@ -1,4 +1,4 @@
-export const globalStyles = {
+export const globalStyles: any = {
     colors: {
         white: '#FEFEFE',
         black: '#050505',
@@ -8,20 +8,28 @@ export const globalStyles = {
         primaryShade: '#194E25',
     },
     spacing: {
+        min: 2,
+        xSmall: 4,
         small: 8,
         medium: 16,
         large: 24,
         xLarge: 36,
+        max: 48,
     },
     fontSizes: {
-        small: 12,
-        medium: 16,
+        min: 10,
+        xSmall: 12,
+        small: 14,
+        medium: 18,
         large: 20,
+        xLarge: 36,
+        max: 48,
     },
-    fontWeights: {
-        regular: '400',
-        medium: '500',
-        bold: '700',
+    weights: {
+        regular: "400",
+        medium: "500",
+        bold: "700",
+        black: "900",
     },
     borderRadius: 8,
 }

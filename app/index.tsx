@@ -2,11 +2,25 @@ import { Text, View, StyleSheet, useWindowDimensions } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "@/assets/global/styles";
 import { Image } from "expo-image";
-import { LinkButton } from "@/components/buttons";
+import { LinkButton, MultiButtonField } from "@/components/buttons";
+import { LandingLegalLinks } from "@/components/GlobalLinks";
+import { KROSSLINKtext } from "@/components/KROSSLINKtext";
 
 const _LOGO = require('@/assets/images/LOGO_KrossLinkArtboard 1_1@VECTOR.svg');
 
 export default function Index() {
+  const authButtons = [
+    {
+      label: "Log In",
+      link: "/log-in",
+      outline: false,
+    },
+    {
+      label: "Sign Up",
+      link: "/sign-up",
+      outline: true,
+    },
+  ]
 
   return (
     <View
@@ -21,14 +35,7 @@ export default function Index() {
           />
         </View>
 
-        <View style={styles.krosslinkContainer}>
-          <Text style={styles.krossText}>
-            KROSS
-          </Text>
-          <Text style={styles.linkText}>
-            LINK
-          </Text>
-        </View>
+        <KROSSLINKtext size="large" />
 
         <Text style={styles.splashText}>
           Powered by KrossFleet, LLC
@@ -36,34 +43,9 @@ export default function Index() {
       </View>
 
       <View style={styles.splashButtonContainer}>
-        <View style={styles.authButtonContainer}>
-          <LinkButton
-            link="/log-in"
-            label="Log In"
-            action={() => null}
-          />
+        <MultiButtonField buttons={authButtons} />
 
-          <LinkButton
-            outline
-            link="/sign-up"
-            label="Sign Up"
-            action={() => null}
-          />
-        </View>
-
-        <View style={styles.legalContainer}>
-          <Link href="/terms-conditions">
-            <Text style={styles.legalLink}>
-              Terms and Conditions
-            </Text>
-          </Link>
-
-          <Link href="/privacy-policy">
-            <Text style={styles.legalLink}>
-              Privacy Policy
-            </Text>
-          </Link>
-        </View>
+        <LandingLegalLinks />
       </View>
     </View>
   );
@@ -106,22 +88,6 @@ const styles = StyleSheet.create({
     width: "100%",
     aspectRatio: 1,
   },
-  krosslinkContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  krossText: {
-    color: globalStyles.colors.black,
-    fontSize: 48,
-    fontWeight: '900',
-  },
-  linkText: {
-    color: globalStyles.colors.primaryLight,
-    fontSize: 48,
-    fontWeight: '900',
-  },
   splashText: {
     color: globalStyles.colors.gray,
     fontSize: 16,
@@ -136,23 +102,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between'
-  },
-  authButtonContainer: {
-    flex: 1,
-    display: 'flex',
-    width: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 10,
-  },
-  legalContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: 20,
-  },
-  legalLink: {
-    color: globalStyles.colors.primaryLight,
   },
 })
